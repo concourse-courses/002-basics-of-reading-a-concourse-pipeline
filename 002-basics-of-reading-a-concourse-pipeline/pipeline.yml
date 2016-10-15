@@ -1,0 +1,47 @@
+resources: ##################################################################
+
+- name: git-repo
+  type: git
+  source:
+    uri: git@github.com:robojar/concourse-courses.git
+    private_key: {{concourse-courses-key}}
+
+jobs: #######################################################################
+
+
+- name: successful-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
+
+- name: failed-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/failed/task.yml
+
+- name: aborted-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/aborted/task.yml
+
+- name: errored-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/errored/task.yml
+
+- name: paused-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/paused/task.yml
+
+- name: newly-added-job
+  plan:
+  - get: git-repo
+  - task: job-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/newly-added/task.yml
+
