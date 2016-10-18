@@ -1,0 +1,14 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ruby
+    tag: 2.3.1-alpine
+
+inputs:
+- name: git-repo
+
+run:
+  path: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/flaky/run.rb
