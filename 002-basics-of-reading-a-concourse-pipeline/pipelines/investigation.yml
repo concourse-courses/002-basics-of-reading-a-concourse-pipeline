@@ -1,0 +1,23 @@
+resources: ##################################################################
+
+- name: git-repo
+  type: git
+  source:
+    uri: git@github.com:robojar/concourse-courses.git
+    private_key: {{concourse-courses-key}}
+
+- name: minute-timer
+  type: time
+  source:
+    interval: 1m
+
+jobs: #######################################################################
+
+
+- name: unit-test
+  plan:
+  - get: git-repo
+  - get: minute-timer
+    trigger: true
+  - task: unit-test-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/flaky/task.yml
