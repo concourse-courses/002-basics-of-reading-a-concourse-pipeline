@@ -6,7 +6,7 @@
 puts
 puts 'Running test!'
 
-if Random.rand(8) == 7
+if ENV['ALWAYS_FAIL'] == 'true' || Random.rand(8) == 7
   puts 'The test failed! All is lost!'
   exit 1
 else

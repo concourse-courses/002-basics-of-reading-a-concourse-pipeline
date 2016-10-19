@@ -12,3 +12,6 @@ inputs:
 
 run:
   path: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/flaky/run.rb
+
+params:
+  ALWAYS_FAIL: false
