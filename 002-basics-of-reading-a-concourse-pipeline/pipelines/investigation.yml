@@ -21,3 +21,9 @@ jobs: #######################################################################
     trigger: true
   - task: unit-test-task
     file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/flaky/task.yml
+
+- name: something-else
+  plan:
+  - get: git-repo
+  - task: successful-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
