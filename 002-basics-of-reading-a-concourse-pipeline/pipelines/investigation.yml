@@ -29,3 +29,11 @@ jobs: #######################################################################
   - get: git-repo
   - task: successful-task
     file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
+
+- name: integration-test
+  plan:
+  - get: git-repo
+    passed:
+      - unit-test
+  - task: successful-task
+    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
