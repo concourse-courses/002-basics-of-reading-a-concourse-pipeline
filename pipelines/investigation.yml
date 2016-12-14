@@ -20,7 +20,7 @@ jobs: #######################################################################
   - get: minute-timer
     trigger: true
   - task: unit-test-task
-    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/flaky/task.yml
+    file: git-repo/tasks/flaky/task.yml
     params:
       ALWAYS_FAIL: true
 
@@ -28,7 +28,7 @@ jobs: #######################################################################
   plan:
   - get: git-repo
   - task: successful-task
-    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
+    file: git-repo/tasks/successful/task.yml
 
 - name: integration-test
   plan:
@@ -36,4 +36,4 @@ jobs: #######################################################################
     passed:
       - unit-test
   - task: successful-task
-    file: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/successful/task.yml
+    file: git-repo/tasks/successful/task.yml

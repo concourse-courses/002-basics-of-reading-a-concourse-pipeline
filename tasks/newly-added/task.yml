@@ -10,4 +10,4 @@ inputs:
 - name: git-repo
 
 run:
-  path: git-repo/002-basics-of-reading-a-concourse-pipeline/tasks/newly-added/run.sh
+  path: git-repo/tasks/newly-added/run.sh
